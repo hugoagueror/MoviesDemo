@@ -18,11 +18,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title  = @"My movies";
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)addMovie:(id)sender {
+   
+    
 }
 
 

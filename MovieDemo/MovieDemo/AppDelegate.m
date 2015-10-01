@@ -17,6 +17,30 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //Add a row
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *failedBankInfo = [NSEntityDescription
+                                       insertNewObjectForEntityForName:@"Movies"
+                                       inManagedObjectContext:context];
+    [failedBankInfo setValue:@"Hellraiser" forKey:@"name"];
+    [failedBankInfo setValue:[NSNumber numberWithInt:1]  forKey:@"score"];
+    [failedBankInfo setValue: [NSNumber numberWithInt:5] forKey:@"category"];
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    //Load an array with values
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Movies" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    
+    
+    ///
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
     //***Init storyboard
