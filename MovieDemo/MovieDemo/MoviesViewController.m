@@ -7,6 +7,7 @@
 //
 
 #import "MoviesViewController.h"
+#import "Movies.h"
 
 @interface MoviesViewController ()
 
@@ -28,8 +29,21 @@
 
 
 - (IBAction)addMovie:(id)sender {
-   
+    //Assign app context to view controller context
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
     
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Movies" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *movies = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    for (Movies *movie in movies) {
+        NSLog(@"%@ %@ %@", movie.name , movie.score , movie.category  );
+    }
 }
 
 

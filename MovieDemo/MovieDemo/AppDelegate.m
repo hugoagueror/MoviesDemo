@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import  "MoviesViewController.h"
-
+#import  "Movies.h"
 @interface AppDelegate ()
 
 @end
@@ -19,12 +19,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Add a row
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSManagedObject *failedBankInfo = [NSEntityDescription
-                                       insertNewObjectForEntityForName:@"Movies"
-                                       inManagedObjectContext:context];
-    [failedBankInfo setValue:@"Hellraiser" forKey:@"name"];
-    [failedBankInfo setValue:[NSNumber numberWithInt:1]  forKey:@"score"];
-    [failedBankInfo setValue: [NSNumber numberWithInt:5] forKey:@"category"];
+    Movies *movie = [NSEntityDescription
+                                      insertNewObjectForEntityForName:@"Movies"
+                                      inManagedObjectContext:context];
+    movie.name = @"Lord of the rings";
+    movie.score = [NSNumber numberWithInt:3]  ;
+    movie.category =  [NSNumber numberWithInt:1] ;
     
     NSError *error;
     if (![context save:&error]) {
@@ -37,6 +37,10 @@
                                    entityForName:@"Movies" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    for (Movies *movie in fetchedObjects) {
+        NSLog(@"%@ %@ %@", movie.name , movie.score , movie.category  );
+    }
     
     
     
