@@ -100,6 +100,9 @@
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnCancelTouched:" destination="WfJ-Rh-8qL" eventType="touchUpInside" id="KIY-wU-UcE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,6 +124,9 @@
                                 <state key="normal" title="SAVE MOVIE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSaveMovieTouched:" destination="WfJ-Rh-8qL" eventType="touchUpInside" id="zSb-II-wKN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

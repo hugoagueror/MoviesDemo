@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AddMovieDelegate <NSObject>
+@optional
+- (void) userHasAddedMovie;
+
+@end
+
 @interface AddMovieViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic, retain) NSArray *categories;
+@property (nonatomic , strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic , retain) id <AddMovieDelegate> delegate ;
 
 @end

@@ -34,7 +34,7 @@
     
     self.categories = [self fetchCategories];
     self.movies = [self fetchMovies];
-    [self.tvMovies reloadData];
+    
 }
 
 #pragma mark - Add Button to Nav Controller
@@ -48,6 +48,7 @@
 - (void) showAddMoviePopViewController:(UIBarButtonItem*) button {
     AddMovieViewController *addMovieVC = (AddMovieViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"AddMovieViewController"] ;
     addMovieVC.categories = self.categories;
+    addMovieVC.delegate =  self ;
     
     [addMovieVC setModalPresentationStyle:UIModalPresentationOverFullScreen];
     [addMovieVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
@@ -177,6 +178,13 @@
     cell.starRating.rating = [movie.score integerValue];
     
     return cell;
+}
+
+#pragma mark - Add Movie Delegate
+
+- (void) userHasAddedMovie {
+    self.movies = [self fetchMovies];
+    [self.tvMovies reloadData];
 }
 
 
