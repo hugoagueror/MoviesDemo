@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EDStarRating.h"
 
 @interface MovieTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet UILabel *lblCategory;
+@property (weak, nonatomic) IBOutlet EDStarRating *starRating;
 
 @end

@@ -23,7 +23,7 @@
                                       insertNewObjectForEntityForName:@"Movies"
                                       inManagedObjectContext:context];
     movie.name = @"Lord of the rings";
-    movie.score = [NSNumber numberWithInt:3]  ;
+    movie.score = [NSNumber numberWithInt:5]  ;
     movie.category =  [NSNumber numberWithInt:2] ;
     movie.creationDate = [NSDate date];
     
@@ -42,8 +42,6 @@
     for (Movies *movie in fetchedObjects) {
         NSLog(@"%@ %@ %@", movie.name , movie.score , movie.category  );
     }
-    
-    
     
     ///
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];

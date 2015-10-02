@@ -137,9 +137,20 @@
     
     Movies *movie = [self.movies objectAtIndex:indexPath.row];
     Categories *category = [self  getCategoryWithId:movie.category ];
-    
+    //fill labels
     cell.lblName.text = [NSString stringWithFormat:@"Name: %@", movie.name];
     cell.lblCategory.text = [NSString stringWithFormat:@"Category: %@", category.name ];
+    
+    //set up rating
+    cell.starRating.starImage = [UIImage imageNamed:@"starImage"];
+    cell.starRating.starHighlightedImage = [UIImage imageNamed:@"starImageHighlighted"];
+    cell.starRating.maxRating = 5.0;
+    cell.starRating.displayMode = EDStarRatingDisplayFull;
+    cell.starRating.editable = NO ;
+    cell.backgroundColor = [UIColor clearColor];
+    
+    //assign score value
+    cell.starRating.rating = [movie.score integerValue];
     
     return cell;
 }
