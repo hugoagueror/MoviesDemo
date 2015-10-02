@@ -9,10 +9,12 @@
 #import "MoviesViewController.h"
 #import "Movies.h"
 #import "Categories.h"
+#import "MovieTableViewCell.h"
 
 @interface MoviesViewController ()
 @property (nonatomic, retain) NSArray *movies;
 @property (nonatomic, retain) NSArray *categories;
+@property (weak, nonatomic) IBOutlet UITableView *tvMovies;
 
 @end
 
@@ -22,11 +24,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title  = @"My movies";
+    self.tvMovies.delegate = self ;
+    self.tvMovies.dataSource = self ;
+    
+    //
     [self createContext];
     [self loadCategories];
     
     self.categories = [self fetchCategories];
     self.movies = [self fetchMovies];
+    [self.tvMovies reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +49,21 @@
 
 }
 
-#pragma mark - Load default data
+- (void) createCategoryWithName: (NSString*) name AndId: (NSInteger) idNumber {
+    //Insert categories
+    Categories *category = [NSEntityDescription
+                            insertNewObjectForEntityForName:@"Categories"
+                            inManagedObjectContext:self.managedObjectContext];
+    category.name = name;
+    category.id =  [NSNumber numberWithInteger:idNumber] ;
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
+
+
 - (void) loadCategories {
     NSArray *categories = [self fetchCategories];
     //if empty add the default ones
@@ -67,19 +88,6 @@
     return categories;
 }
 
-- (void) createCategoryWithName: (NSString*) name AndId: (NSInteger) idNumber {
-    //Insert categories
-    Categories *category = [NSEntityDescription
-                            insertNewObjectForEntityForName:@"Categories"
-                            inManagedObjectContext:self.managedObjectContext];
-    category.name = name;
-    category.id =  [NSNumber numberWithInteger:idNumber] ;
-    
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-}
 
 - (NSArray*) fetchMovies {
     //Get data, remember to assign a NSManagedObject in the view controller
@@ -92,6 +100,49 @@
     return movies;
 }
 
+- (Categories*) getCategoryWithId:(NSNumber*) MovieId{
+    //Filter the category array
+    
+    NSPredicate *pred ;
+    pred =[NSPredicate predicateWithFormat:@"(id == [c] %@)" , MovieId  ];
+    
+    NSSortDescriptor *sort=[NSSortDescriptor sortDescriptorWithKey:@"numericValue" ascending:YES];
+    
+    NSArray *sortDescriptors = [NSArray arrayWithObject: sort];
+    
+    NSArray *filteredArr = [[self.categories filteredArrayUsingPredicate:pred] sortedArrayUsingDescriptors:sortDescriptors];
+    
+    if ([filteredArr count] >= 1){
+        return [filteredArr objectAtIndex:0];
+    }else {
+        NSLog(@"Unexpected id. Row should have one of the stored categories ");
+        return nil;
+    }
+    
+}
+
+#pragma mark - UITableDataSourceDelegate
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.movies count];
+}
+
+
+- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MovieTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieTableViewCell"];
+    
+    Movies *movie = [self.movies objectAtIndex:indexPath.row];
+    Categories *category = [self  getCategoryWithId:movie.category ];
+    
+    cell.lblName.text = [NSString stringWithFormat:@"Name: %@", movie.name];
+    cell.lblCategory.text = [NSString stringWithFormat:@"Category: %@", category.name ];
+    
+    return cell;
+}
 
 
 @end

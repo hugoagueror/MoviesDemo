@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MoviesViewController : UIViewController
+@interface MoviesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic , strong) NSManagedObjectContext *managedObjectContext;
 
