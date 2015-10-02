@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddMovieViewController : UIViewController
+@interface AddMovieViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic, retain) NSArray *categories;
 

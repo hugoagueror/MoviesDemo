@@ -7,10 +7,12 @@
 //
 
 #import "AddMovieViewController.h"
+#import "Categories.h"
 
 @interface AddMovieViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *txtMovieName;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerCategories;
+@property (nonatomic, retain) Categories *selectedCategory ;
 
 @end
 
@@ -19,11 +21,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self fillCategories];
+    self.pickerCategories.delegate = self;
+    self.pickerCategories.dataSource = self ;
+    
 }
 
-- (void) fillCategories {
-    
+#pragma mark - UIPickerViewDataSource
+- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return  [self.categories count];
+}
+
+- (NSString*) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    Categories *category =  [self.categories objectAtIndex:row];
+    return  category.name ;
+}
+
+
+#pragma mark - UIPickerViewDelegate
+
+- (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    self.selectedCategory = [self.categories objectAtIndex:row];
 }
 
 
