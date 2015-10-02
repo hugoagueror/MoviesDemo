@@ -95,8 +95,15 @@
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"Movies" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sort=[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject: sort];
+    fetchRequest.sortDescriptors = sortDescriptors;
+    
     NSError *error;
     NSArray *movies = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+
     return movies;
 }
 
@@ -137,6 +144,9 @@
     
     Movies *movie = [self.movies objectAtIndex:indexPath.row];
     Categories *category = [self  getCategoryWithId:movie.category ];
+    
+    NSLog(@"Creation date for %@  movie is %@" , movie.name , movie.creationDate );
+    
     //fill labels
     cell.lblName.text = [NSString stringWithFormat:@"Name: %@", movie.name];
     cell.lblCategory.text = [NSString stringWithFormat:@"Category: %@", category.name ];

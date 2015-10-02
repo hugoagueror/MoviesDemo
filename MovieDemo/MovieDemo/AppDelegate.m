@@ -22,7 +22,7 @@
     Movies *movie = [NSEntityDescription
                                       insertNewObjectForEntityForName:@"Movies"
                                       inManagedObjectContext:context];
-    movie.name = @"Lord of the rings";
+    movie.name = @"HellRaiser";
     movie.score = [NSNumber numberWithInt:5]  ;
     movie.category =  [NSNumber numberWithInt:2] ;
     movie.creationDate = [NSDate date];
