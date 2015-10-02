@@ -24,6 +24,9 @@
     // Do any additional setup after loading the view.
     self.pickerCategories.delegate = self;
     self.pickerCategories.dataSource = self ;
+    
+    self.txtMovieName.delegate = self ;
+    
     [self addGesture];
     [self createContext];
     
@@ -112,6 +115,14 @@
     }else {
         [self.delegate userHasAddedMovie];
     }
+}
+
+
+#pragma mark - UITextfieldDelegate
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    return YES;
 }
 
 

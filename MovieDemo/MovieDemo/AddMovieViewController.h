@@ -14,7 +14,7 @@
 
 @end
 
-@interface AddMovieViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface AddMovieViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate , UITextFieldDelegate>
 
 @property (nonatomic, retain) NSArray *categories;
 @property (nonatomic , strong) NSManagedObjectContext *managedObjectContext;
