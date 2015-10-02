@@ -1,5 +1,5 @@
 //
-//  Movies+CoreDataProperties.m
+//  Categories+CoreDataProperties.m
 //  MovieDemo
 //
 //  Created by Hugo Aguero on 10/1/15.
@@ -9,13 +9,11 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Movies+CoreDataProperties.h"
+#import "Categories+CoreDataProperties.h"
 
-@implementation Movies (CoreDataProperties)
+@implementation Categories (CoreDataProperties)
 
+@dynamic id;
 @dynamic name;
-@dynamic score;
-@dynamic category;
-@dynamic creationDate;
 
 @end

@@ -15,6 +15,8 @@
 		9AA3262F1BBDF3A800AEF4E1 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3262E1BBDF3A800AEF4E1 /* MoviesViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9AA326341BBDFAE600AEF4E1 /* Movies+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA326311BBDFAE600AEF4E1 /* Movies+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		9AA326351BBDFAE600AEF4E1 /* Movies.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA326331BBDFAE600AEF4E1 /* Movies.m */; settings = {ASSET_TAGS = (); }; };
+		9AA3263A1BBE015E00AEF4E1 /* Categories+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA326371BBE015E00AEF4E1 /* Categories+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		9AA3263B1BBE015E00AEF4E1 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA326391BBE015E00AEF4E1 /* Categories.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,10 @@
 		9AA326311BBDFAE600AEF4E1 /* Movies+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Movies+CoreDataProperties.m"; sourceTree = "<group>"; };
 		9AA326321BBDFAE600AEF4E1 /* Movies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movies.h; sourceTree = "<group>"; };
 		9AA326331BBDFAE600AEF4E1 /* Movies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movies.m; sourceTree = "<group>"; };
+		9AA326361BBE015E00AEF4E1 /* Categories+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Categories+CoreDataProperties.h"; sourceTree = "<group>"; };
+		9AA326371BBE015E00AEF4E1 /* Categories+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Categories+CoreDataProperties.m"; sourceTree = "<group>"; };
+		9AA326381BBE015E00AEF4E1 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		9AA326391BBE015E00AEF4E1 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,10 @@
 				9AA326161BBDF31C00AEF4E1 /* AppDelegate.h */,
 				9AA326171BBDF31C00AEF4E1 /* AppDelegate.m */,
 				9AA3261C1BBDF31C00AEF4E1 /* Main.storyboard */,
+				9AA326361BBE015E00AEF4E1 /* Categories+CoreDataProperties.h */,
+				9AA326371BBE015E00AEF4E1 /* Categories+CoreDataProperties.m */,
+				9AA326381BBE015E00AEF4E1 /* Categories.h */,
+				9AA326391BBE015E00AEF4E1 /* Categories.m */,
 				9AA326221BBDF31C00AEF4E1 /* Assets.xcassets */,
 				9AA326271BBDF31C00AEF4E1 /* Info.plist */,
 				9AA3261F1BBDF31C00AEF4E1 /* MovieDemo.xcdatamodeld */,
@@ -163,7 +173,9 @@
 				9AA326151BBDF31C00AEF4E1 /* main.m in Sources */,
 				9AA326211BBDF31C00AEF4E1 /* MovieDemo.xcdatamodeld in Sources */,
 				9AA326341BBDFAE600AEF4E1 /* Movies+CoreDataProperties.m in Sources */,
+				9AA3263B1BBE015E00AEF4E1 /* Categories.m in Sources */,
 				9AA3262F1BBDF3A800AEF4E1 /* MoviesViewController.m in Sources */,
+				9AA3263A1BBE015E00AEF4E1 /* Categories+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

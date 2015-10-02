@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSNumber *score;
 @property (nullable, nonatomic, retain) NSNumber *category;
+@property (nullable, nonatomic, retain) NSDate *creationDate;
 
 @end
 

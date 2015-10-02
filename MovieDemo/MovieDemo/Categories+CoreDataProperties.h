@@ -1,5 +1,5 @@
 //
-//  Movies+CoreDataProperties.m
+//  Categories+CoreDataProperties.h
 //  MovieDemo
 //
 //  Created by Hugo Aguero on 10/1/15.
@@ -9,13 +9,15 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Movies+CoreDataProperties.h"
+#import "Categories.h"
 
-@implementation Movies (CoreDataProperties)
+NS_ASSUME_NONNULL_BEGIN
 
-@dynamic name;
-@dynamic score;
-@dynamic category;
-@dynamic creationDate;
+@interface Categories (CoreDataProperties)
+
+@property (nullable, nonatomic, retain) NSNumber *id;
+@property (nullable, nonatomic, retain) NSString *name;
 
 @end
+
+NS_ASSUME_NONNULL_END

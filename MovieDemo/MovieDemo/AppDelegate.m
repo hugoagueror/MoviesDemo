@@ -25,6 +25,7 @@
     movie.name = @"Lord of the rings";
     movie.score = [NSNumber numberWithInt:3]  ;
     movie.category =  [NSNumber numberWithInt:1] ;
+    movie.creationDate = [NSDate date];
     
     NSError *error;
     if (![context save:&error]) {
