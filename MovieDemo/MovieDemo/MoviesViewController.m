@@ -27,6 +27,7 @@
     self.title  = @"My movies";
     self.tvMovies.delegate = self ;
     self.tvMovies.dataSource = self ;
+    
     //Add button to Nav Controller
     [self addButtonToNavController];
     //
@@ -193,6 +194,19 @@
     [self.navigationController pushViewController:movieDetailVC animated:YES];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSLog(@"DELETE A ROW");
+        
+        Movies *movie = [self.movies objectAtIndex:indexPath.row];
+        [self.managedObjectContext deleteObject:movie];
+        self.movies = [self fetchMovies];
+        [self.tvMovies reloadData];
+    }
+    
+}
 
 #pragma mark - Add Movie Delegate
 
