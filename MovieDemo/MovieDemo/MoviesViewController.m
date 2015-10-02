@@ -26,7 +26,8 @@
     self.title  = @"My movies";
     self.tvMovies.delegate = self ;
     self.tvMovies.dataSource = self ;
-    
+    //Add button to Nav Controller
+    [self addButtonToNavController];
     //
     [self createContext];
     [self loadCategories];
@@ -36,10 +37,17 @@
     [self.tvMovies reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Add Button to Nav Controller
+- (void) addButtonToNavController {
+    UIBarButtonItem *showSettingsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showSettings:)];
+    
+    self.navigationItem.rightBarButtonItem  = showSettingsButton;
 }
+
+- (void) showSettings:(UIBarButtonItem*) button {
+    
+}
+
 
 
 #pragma mark - Database operations

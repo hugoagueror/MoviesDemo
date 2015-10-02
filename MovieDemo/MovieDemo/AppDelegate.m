@@ -58,6 +58,7 @@
     //***Set initial view controller
     navigationController.viewControllers = @[moviesViewController];
     
+
     //**Set rootview controller
     self.window.rootViewController = navigationController;
     
@@ -66,8 +67,6 @@
     
     return YES;
 
-    // Override point for customization after application launch.
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

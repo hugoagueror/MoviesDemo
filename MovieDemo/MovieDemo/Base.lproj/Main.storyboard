@@ -69,7 +69,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="314" y="322"/>
+            <point key="canvasLocation" x="18" y="141"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DhV-pc-y03">
+            <objects>
+                <viewController id="WfJ-Rh-8qL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AD0-q8-SUe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zj4-B6-gK2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3ta-QE-HSB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sG5-Q1-bQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18" y="701"/>
         </scene>
     </scenes>
 </document>
