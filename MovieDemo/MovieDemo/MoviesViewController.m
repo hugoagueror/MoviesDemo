@@ -10,12 +10,12 @@
 #import "Movies.h"
 #import "Categories.h"
 #import "MovieTableViewCell.h"
+#import "AddMovieViewController.h"
 
 @interface MoviesViewController ()
 @property (nonatomic, retain) NSArray *movies;
 @property (nonatomic, retain) NSArray *categories;
 @property (weak, nonatomic) IBOutlet UITableView *tvMovies;
-
 @end
 
 @implementation MoviesViewController
@@ -39,15 +39,21 @@
 
 #pragma mark - Add Button to Nav Controller
 - (void) addButtonToNavController {
-    UIBarButtonItem *showSettingsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showSettings:)];
+    UIBarButtonItem *addMovieButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showAddMoviePopViewController:)];
     
-    self.navigationItem.rightBarButtonItem  = showSettingsButton;
+    self.navigationItem.rightBarButtonItem  = addMovieButton;
 }
 
-- (void) showSettings:(UIBarButtonItem*) button {
+//Shows the add movie popup
+- (void) showAddMoviePopViewController:(UIBarButtonItem*) button {
+    AddMovieViewController *addMovieVC = (AddMovieViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"AddMovieViewController"] ;
+    addMovieVC.categories = self.categories;
     
+    [addMovieVC setModalPresentationStyle:UIModalPresentationOverFullScreen];
+    [addMovieVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    
+    [self presentViewController:addMovieVC animated:YES completion:nil];
 }
-
 
 
 #pragma mark - Database operations
