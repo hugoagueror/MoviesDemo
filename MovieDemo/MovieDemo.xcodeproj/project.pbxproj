@@ -20,6 +20,7 @@
 		9AA3263F1BBE06A900AEF4E1 /* MovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3263E1BBE06A900AEF4E1 /* MovieTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		9AA326451BBE0D4E00AEF4E1 /* EDStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA326441BBE0D4E00AEF4E1 /* EDStarRating.m */; settings = {ASSET_TAGS = (); }; };
 		9AA326481BBE180100AEF4E1 /* AddMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA326471BBE180100AEF4E1 /* AddMovieViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9AA3264B1BBE2AED00AEF4E1 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA3264A1BBE2AED00AEF4E1 /* MovieDetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		9AA326441BBE0D4E00AEF4E1 /* EDStarRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStarRating.m; sourceTree = "<group>"; };
 		9AA326461BBE180100AEF4E1 /* AddMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMovieViewController.h; sourceTree = "<group>"; };
 		9AA326471BBE180100AEF4E1 /* AddMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMovieViewController.m; sourceTree = "<group>"; };
+		9AA326491BBE2AED00AEF4E1 /* MovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
+		9AA3264A1BBE2AED00AEF4E1 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 				9AA3262E1BBDF3A800AEF4E1 /* MoviesViewController.m */,
 				9AA326461BBE180100AEF4E1 /* AddMovieViewController.h */,
 				9AA326471BBE180100AEF4E1 /* AddMovieViewController.m */,
+				9AA326491BBE2AED00AEF4E1 /* MovieDetailsViewController.h */,
+				9AA3264A1BBE2AED00AEF4E1 /* MovieDetailsViewController.m */,
 			);
 			path = MovieDemo;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				9AA326181BBDF31C00AEF4E1 /* AppDelegate.m in Sources */,
 				9AA326151BBDF31C00AEF4E1 /* main.m in Sources */,
 				9AA326211BBDF31C00AEF4E1 /* MovieDemo.xcdatamodeld in Sources */,
+				9AA3264B1BBE2AED00AEF4E1 /* MovieDetailsViewController.m in Sources */,
 				9AA3263F1BBE06A900AEF4E1 /* MovieTableViewCell.m in Sources */,
 				9AA326341BBDFAE600AEF4E1 /* Movies+CoreDataProperties.m in Sources */,
 				9AA3263B1BBE015E00AEF4E1 /* Categories.m in Sources */,

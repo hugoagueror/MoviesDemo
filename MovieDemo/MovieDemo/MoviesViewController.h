@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AddMovieViewController.h"
+#import "MovieDetailsViewController.h"
 
-@interface MoviesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, AddMovieDelegate>
+@interface MoviesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, AddMovieDelegate, MovieDetailsDelegate>
 
 @property (nonatomic , strong) NSManagedObjectContext *managedObjectContext;
 

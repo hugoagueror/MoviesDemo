@@ -104,6 +104,7 @@
     movie.score = [NSNumber numberWithInt:0]  ;
     movie.category =  [self.selectedCategory id ];
     movie.creationDate = [NSDate date];
+    movie.numberOfCalifications = 0;
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

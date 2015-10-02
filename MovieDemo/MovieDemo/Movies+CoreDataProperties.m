@@ -17,5 +17,6 @@
 @dynamic score;
 @dynamic category;
 @dynamic creationDate;
+@dynamic numberOfCalifications;
 
 @end

@@ -11,6 +11,7 @@
 #import "Categories.h"
 #import "MovieTableViewCell.h"
 #import "AddMovieViewController.h"
+#import "MovieDetailsViewController.h"
 
 @interface MoviesViewController ()
 @property (nonatomic, retain) NSArray *movies;
@@ -179,10 +180,28 @@
     
     return cell;
 }
+#pragma mark - UITableViewDelegate
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Movies *selectedMovie = [self.movies objectAtIndex:indexPath.row];
+    Categories *category = [self  getCategoryWithId:selectedMovie.category ];
+    
+    MovieDetailsViewController *movieDetailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MovieDetailsViewController"];
+    movieDetailVC.movie = selectedMovie ;
+    movieDetailVC.category =  category.name;
+    movieDetailVC.delegate = self ;
+    
+    [self.navigationController pushViewController:movieDetailVC animated:YES];
+}
+
 
 #pragma mark - Add Movie Delegate
 
 - (void) userHasAddedMovie {
+    self.movies = [self fetchMovies];
+    [self.tvMovies reloadData];
+}
+
+- (void) userSavedRating {
     self.movies = [self fetchMovies];
     [self.tvMovies reloadData];
 }

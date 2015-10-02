@@ -18,32 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Add a row
-    NSManagedObjectContext *context = [self managedObjectContext];
-    Movies *movie = [NSEntityDescription
-                                      insertNewObjectForEntityForName:@"Movies"
-                                      inManagedObjectContext:context];
-    movie.name = @"HellRaiser";
-    movie.score = [NSNumber numberWithInt:5]  ;
-    movie.category =  [NSNumber numberWithInt:2] ;
-    movie.creationDate = [NSDate date];
     
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    
-    //Load an array with values
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"Movies" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    for (Movies *movie in fetchedObjects) {
-        NSLog(@"%@ %@ %@", movie.name , movie.score , movie.category  );
-    }
-    
-    ///
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
     //***Init storyboard

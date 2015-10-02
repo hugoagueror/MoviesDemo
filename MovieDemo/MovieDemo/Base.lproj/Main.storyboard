@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Movies View Controller-->
@@ -149,6 +150,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sG5-Q1-bQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="354" y="141"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="OFs-IK-bQK">
+            <objects>
+                <viewController storyboardIdentifier="MovieDetailsViewController" id="vCp-qJ-J8I" customClass="MovieDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HDG-3V-OXs"/>
+                        <viewControllerLayoutGuide type="bottom" id="mg2-Mu-PCF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QYX-Y5-ULc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Star Wars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQz-X5-lCt">
+                                <rect key="frame" x="20" y="54" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiC-Us-n1E">
+                                <rect key="frame" x="20" y="103" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of califications: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raH-BE-CoV">
+                                <rect key="frame" x="20" y="145" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3b-eQ-eet" userLabel="StarRatingView" customClass="EDStarRating">
+                                <rect key="frame" x="20" y="238" width="280" height="46"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coa-Ye-1eb">
+                                <rect key="frame" x="20" y="423" width="280" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="SAVE RATING">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSaveRating:" destination="vCp-qJ-J8I" eventType="touchUpInside" id="76s-NX-wUq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SQz-X5-lCt" firstAttribute="leading" secondItem="QYX-Y5-ULc" secondAttribute="leadingMargin" constant="4" id="2YU-2i-1LR"/>
+                            <constraint firstItem="coa-Ye-1eb" firstAttribute="trailing" secondItem="M3b-eQ-eet" secondAttribute="trailing" id="5bp-nF-9zn"/>
+                            <constraint firstItem="raH-BE-CoV" firstAttribute="trailing" secondItem="SQz-X5-lCt" secondAttribute="trailing" id="78h-x1-l8h"/>
+                            <constraint firstItem="coa-Ye-1eb" firstAttribute="leading" secondItem="M3b-eQ-eet" secondAttribute="leading" id="7al-eD-ePH"/>
+                            <constraint firstItem="mg2-Mu-PCF" firstAttribute="top" secondItem="M3b-eQ-eet" secondAttribute="bottom" constant="196" id="ECR-t3-7Cg"/>
+                            <constraint firstItem="raH-BE-CoV" firstAttribute="top" secondItem="ZiC-Us-n1E" secondAttribute="bottom" constant="21" id="LUV-Yg-L6T"/>
+                            <constraint firstItem="raH-BE-CoV" firstAttribute="trailing" secondItem="ZiC-Us-n1E" secondAttribute="trailing" id="MFu-M7-OHf"/>
+                            <constraint firstItem="raH-BE-CoV" firstAttribute="leading" secondItem="ZiC-Us-n1E" secondAttribute="leading" id="PrH-uY-9cx"/>
+                            <constraint firstItem="M3b-eQ-eet" firstAttribute="leading" secondItem="raH-BE-CoV" secondAttribute="leading" id="VJj-xL-dHv"/>
+                            <constraint firstItem="SQz-X5-lCt" firstAttribute="top" secondItem="HDG-3V-OXs" secondAttribute="bottom" constant="34" id="Xbm-hf-4E4"/>
+                            <constraint firstItem="M3b-eQ-eet" firstAttribute="top" secondItem="raH-BE-CoV" secondAttribute="bottom" constant="72" id="bA3-La-cKU"/>
+                            <constraint firstItem="M3b-eQ-eet" firstAttribute="trailing" secondItem="raH-BE-CoV" secondAttribute="trailing" id="bBA-LB-8l5"/>
+                            <constraint firstItem="mg2-Mu-PCF" firstAttribute="top" secondItem="coa-Ye-1eb" secondAttribute="bottom" constant="27" id="bK0-9e-FSP"/>
+                            <constraint firstItem="ZiC-Us-n1E" firstAttribute="top" secondItem="SQz-X5-lCt" secondAttribute="bottom" constant="28" id="dbx-rK-Qan"/>
+                            <constraint firstItem="SQz-X5-lCt" firstAttribute="centerX" secondItem="QYX-Y5-ULc" secondAttribute="centerX" id="gYH-ap-5bX"/>
+                            <constraint firstItem="raH-BE-CoV" firstAttribute="leading" secondItem="SQz-X5-lCt" secondAttribute="leading" id="iJW-fd-F4Q"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="lblCategory" destination="ZiC-Us-n1E" id="XIX-Gj-bBZ"/>
+                        <outlet property="lblMovieName" destination="SQz-X5-lCt" id="Aex-1w-D0E"/>
+                        <outlet property="lblNumberOfCalifications" destination="raH-BE-CoV" id="Wl8-Eg-A8G"/>
+                        <outlet property="starRating" destination="M3b-eQ-eet" id="vSF-db-FMV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g62-AS-Amx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="141"/>
         </scene>
     </scenes>
 </document>
